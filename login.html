@@ -1,0 +1,70 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>登陆</title>
+	<link rel="stylesheet" href="test.css" type="text/css" media="all" />
+</head><body>
+<fieldset>
+	<table background="http://img.tukuppt.com//ad_preview/00/03/30/5c98a556e3a89.jpg" width="1877" height="500">
+		<tr height="170"> <td width="570px">
+		</td>
+			<td>
+			</td>
+		</tr>
+		<tr><td>
+		</td>
+			<td>
+				<table>
+					<form method ="POST" action="http://192.168.1.101:5000/login" name="frmLogin"  >
+					<tr><td class="test">用户名：</td>
+						<td>
+							<input type="text" name="username" size="20" maxlength="20" />
+					    </td>
+					</tr>
+					<tr>
+						<td>密  码：</td>
+						<td><input type="password" name="password"  size="20" maxlength="20"  />
+						</td>
+					</tr>
+					<tr>
+						<td>验证码:</td>
+						<td>
+							<input type="text" size="" name="inputcode"  />
+						</td>
+						<td>
+							<img src="https://g.csdnimg.cn/static/user-medal/chizhiyiheng.svg">
+						</td>
+						<td>
+							<a href="#" onclick="shuaxin();">刷新</a>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="zlogin" value="1">自动登录</td>
+					</tr>
+				</table>
+			</td>
+		<tr>
+		<td>
+		</td>
+		<td>
+			<table>
+				<tr>
+					<td>
+						<input type="submit" name="login" value="登录" onClick="return validateLogin()"/>
+					</td>
+					<td>
+						<input type="reset" name="rs" value="重置">
+					</td>
+					<td>
+						<input type="button" name="button" value="注册" onclick="location.href='http://192.168.1.101:5000/registered'">
+					</td>
+				</tr>
+				</tr>
+			</table>
+		</td>
+	</table>
+</fieldset>
+</form>
+<script src="test.js"></script>
+</body>
+</html>
