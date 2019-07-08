@@ -43,9 +43,12 @@
 					<tr>
 						<td><input type="checkbox" name="zlogin" value="1">自动登录</td>
 					</tr>
+          </form>
+
 				</table>
 			</td>
 		<tr>
+		</tr>
 		<td>
 		</td>
 		<td>
@@ -61,13 +64,10 @@
 						<input type="button" name="button" value="注册" onclick="location.href='http://192.168.1.101:5000/registered'">
 					</td>
 				</tr>
-				</tr>
 			</table>
 		</td>
 	</table>
 </fieldset>
-</form>
-<script src="test.js"></script>
 </body>
 </html>
 
