@@ -75,8 +75,8 @@ export default {
       border-radius: 20px;
       width: 80px;
       text-align: center;
-      height: 40px;
-      line-height: 40px;
+      height: 38px;
+      line-height: 38px;
       position: fixed;
       border: 1px solid rgba(236,97,73,.7);
       top: 9px;
