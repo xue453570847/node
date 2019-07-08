@@ -2,7 +2,7 @@
   <div class="detail">
     <div class="detail--div detail--left">
       <h1 class="detail--left__title">
-        这是测试的啊
+        素问
       </h1>
       <div class="detail--left__author">
         <img src="http://img5.duitang.com/uploads/item/201508/20/20150820104208_AzFPV.jpeg" alt="">

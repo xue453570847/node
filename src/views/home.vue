@@ -4,7 +4,7 @@
        <ul class="home--div__left">
          <li class="home--div__left--li" v-for="(item, index) in 10" :key="index">
           <router-link to="/detail">
-           <p class="home--div__left--title">这是测试的啊</p>
+           <p class="home--div__left--title">相见欢</p>
            <div class="home--div__left--desc">
       当日她哭着乞求她，说她不想嫁与王爷。 “你真愿与那人过浪迹天涯的生活，也不愿嫁与王爷？” “是，我保证我永远不会回来”第二日，王爷迎娶舞家大小姐...
           </div>
