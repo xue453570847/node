@@ -9,9 +9,11 @@
       <li class="head__li--register">
         注册
       </li>
+      <router-link to="/login">
       <li class="head__li--login">
         登录
       </li>
+      </router-link>
       <router-link to="/project">
         <li class="head__li--pro">
           <el-button type="danger" round>
