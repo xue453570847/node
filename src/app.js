@@ -5,7 +5,7 @@ import { createStore } from './store'
 import { sync } from 'vuex-router-sync'
 import titleMixin from './util/title'
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+// import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI)
 // mixin for handling title 
 Vue.mixin(titleMixin)
