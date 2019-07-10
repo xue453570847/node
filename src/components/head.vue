@@ -1,19 +1,24 @@
 <template>
-  <div class="head">
+  <div class="head" v-if="show">
     <span class="head__desc">前端</span>
     <ul class="head__ul">
       <router-link to="/home">
         <li class="head__li--home">首页
         </li>
       </router-link>
-      <li class="head__li--register">
-        注册
-      </li>
-      <router-link to="/login">
+      <router-link to="/register" v-show="!isLogin">
+        <li class="head__li--register">
+          注册
+        </li>
+      </router-link>
+      <router-link to="/login" v-show="!isLogin">
       <li class="head__li--login">
         登录
       </li>
       </router-link>
+      <li class="head__li--active" v-show="isLogin">
+        Welcome back <span>{{user}}</span>
+      </li>
       <router-link to="/project">
         <li class="head__li--pro">
           <el-button type="danger" round>
@@ -26,11 +31,38 @@
 </template>
 
 <script>
+import Tools from '../util/tools.js'
 export default {
   name: 'MyHeader',
   data () {
     return {
-
+      show: true,
+      isLogin: false,
+      user: ''
+    }
+  },
+  watch:{
+    '$route':'getPath'
+  },
+  mounted () {
+    this.getPath()
+  },
+  methods: {
+    getPath(){
+      // 路由变化 判断是否有头部 & 判断用户是否登录
+      if (Tools.getCookie('username')) {
+        this.isLogin = true
+        this.user = Tools.getCookie('username')
+      } else {
+        this.isLogin = false
+      }
+      let flag = true
+      if (this.$route.path.indexOf('login') > -1 || this.$route.path.indexOf('register') > -1){
+        flag = false
+      } else {
+        flag = true
+      }
+      this.show =  flag
     }
   }
 }
@@ -90,6 +122,16 @@ export default {
       position: fixed;
       top: 21px;
       right: 300px;
+    }
+    &--active{
+      color: #969696;
+      position: fixed;
+      top: 21px;
+      right: 200px;
+      span{
+        margin-left: 5px;
+        color: forestgreen;
+      }
     }
   }
 }

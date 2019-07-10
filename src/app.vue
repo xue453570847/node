@@ -16,9 +16,18 @@
 import MyFooter from './components/footer.vue'
 import MyHeader from './components/head.vue'
 export default {
+  data () {
+    return {
+    }
+  },
   components: {
     MyFooter,
     MyHeader
+  },
+  mounted () {
+
+  },
+  methods: {
   }
 }
 </script>
@@ -29,8 +38,11 @@ export default {
   margin: 0;
   padding: 0;
 }
+html,body{
+  height: 100%;
+}
 #app{
-  margin-top: 58px;
+  height: 100%;
 }
 ul,li{
   list-style: none;

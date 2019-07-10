@@ -1,13 +1,13 @@
 <template>
-  <div class="login">
+  <div class="register">
     <div class="sign">
       <div class="logo"><a href="/" class="text">前端</a></div>
       <div class="main">
         <h4 class="title">
           <div class="normal-title">
-            <a class="active" href="/sign_in">登录</a>
+            <a class="login" href="/login">登录</a>
             <b>·</b>
-            <a class="register" href="/register">注册</a>
+            <a class="active" href="/register">注册</a>
           </div>
         </h4>
         <div class="widget">
@@ -16,8 +16,9 @@
             v-model="username"
             clearable>
           </el-input>
-          <el-input class="widget--password" placeholder="请输入密码" v-model="password" show-password></el-input>
-          <el-button class="widget--btn" type="primary" round @click="gologin">登录</el-button>
+          <el-input class="widget--password" placeholder="请输入密码" v-model="password1" type="password"></el-input>
+          <el-input class="widget--password" placeholder="请确认密码" v-model="password2" type="password"></el-input>
+          <el-button class="widget--btn" type="primary" round @click="goReg">注册</el-button>
         </div>
       </div>
     </div>
@@ -32,25 +33,28 @@ export default {
   data () {
     return {
       username: '',
-      password: ''
+      password1: '',
+      password2: ''
     }
   },
-  mounted () {
-  },
   methods: {
-    gologin () {
+    goReg () {
+      if (this.password1 !== this.password2) {
+        this.open4('二次密码不一致')
+        return
+      }
       axios({
         method: 'POST',
-        url:'http://106.12.57.4:3000/user/login',
+        url:'http://106.12.57.4:3000/user/regist',
         data: {
           username: this.username,
-          password: this.password
+          password: this.password1
         }
       }).then((res)=>{
         if (res.data.code != 0) {
           this.open4(res.data.desc)
         } else {
-          const response = JSON.parse(res.data.userInfo)
+          const response = JSON.parse(res.data.username)
           Tools.setCookie('username', response.username)
           this.$router.push('/')
         }
@@ -67,7 +71,7 @@ export default {
 </script>
 
 <style lang="scss">
-.login{
+.register{
   height: 100%;
   .sign{
     height: 100%;
@@ -108,7 +112,7 @@ export default {
           color: #ea6f5a;
           border-bottom: 2px solid #ea6f5a;
         }
-        .register{
+        .login{
           padding: 10px;
           color: #969696;
         }

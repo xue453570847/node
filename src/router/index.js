@@ -18,6 +18,10 @@ export function createRouter() {
         component: () => import('../views/login.vue')
       },
       {
+        path: '/register',
+        component: () => import('../views/register.vue')
+      },
+      {
         path: '/home',
         component: () => import('../views/home.vue')
       },

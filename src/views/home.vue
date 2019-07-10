@@ -59,6 +59,7 @@ export default {
 .home{
   width:750px;
   margin: 0 auto;
+  margin-top: 58px;
   &--div{
     width: 100%;
     float: left;

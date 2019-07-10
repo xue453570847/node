@@ -95,6 +95,7 @@ export default {
 .detail{
   width: 750px;
   margin: 0 auto;
+  margin-top: 58px;
   &--div{
     float: left;
   }
