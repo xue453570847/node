@@ -54,7 +54,7 @@ export default {
         if (res.data.code != 0) {
           this.open4(res.data.desc)
         } else {
-          const response = JSON.parse(res.data.userInfo)
+          const response = res.data.userInfo
           Tools.setCookie('username', response.username)
           this.$router.push('/')
         }

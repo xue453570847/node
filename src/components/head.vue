@@ -1,5 +1,5 @@
 <template>
-  <div class="head" v-if="show">
+  <div class="head" v-show="show">
     <span class="head__desc">前端</span>
     <ul class="head__ul">
       <router-link to="/home">
