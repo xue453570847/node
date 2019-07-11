@@ -1,13 +1,21 @@
 <template>
   <div class="register">
     <div class="sign">
-      <div class="logo"><a href="/" class="text">前端</a></div>
+      <div class="logo">
+        <router-link to="/">
+          <a class="text">前端</a>
+        </router-link>
+      </div>
       <div class="main">
         <h4 class="title">
           <div class="normal-title">
-            <a class="login" href="/login">登录</a>
+            <router-link to="/login">
+              <a class="login">登录</a>
+            </router-link>
             <b>·</b>
-            <a class="active" href="/register">注册</a>
+            <router-link to="/register">
+              <a class="active">注册</a>
+            </router-link>
           </div>
         </h4>
         <div class="widget">
@@ -56,7 +64,7 @@ export default {
         } else {
           const response = res.data.userInfo
           Tools.setCookie('username', response.username)
-          this.$router.push('/')
+          this.$router.pureplacesh('/')
         }
       })
     },

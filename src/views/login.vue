@@ -1,13 +1,21 @@
 <template>
   <div class="login">
     <div class="sign">
-      <div class="logo"><a href="/" class="text">前端</a></div>
+      <div class="logo">
+        <router-link to="/">
+          <a class="text">前端</a>
+        </router-link>
+      </div>
       <div class="main">
         <h4 class="title">
           <div class="normal-title">
-            <a class="active" href="/sign_in">登录</a>
-            <b>·</b>
-            <a class="register" href="/register">注册</a>
+              <router-link to="/login">
+                <a class="active">登录</a>
+              </router-link>
+              <b>·</b>
+              <router-link to="/register">
+                <a class="register">注册</a>
+              </router-link>
           </div>
         </h4>
         <div class="widget">
