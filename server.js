@@ -125,7 +125,7 @@ app.get('*', isProd ? render : (req, res) => {
 //   console.log(`server started at localhost:${port}`)
 // })
 
-app.set('port', process.env.PORT || 80)
+app.set('port', process.env.PORT || 8080)
 let hostname = '0.0.0.0'
 app.listen(app.get('port'), hostname, () => {
   console.log(`Server running at http://${hostname}:${app.get('port')}`)
