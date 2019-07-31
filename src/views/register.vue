@@ -64,7 +64,7 @@ export default {
         } else {
           const response = res.data.userInfo
           Tools.setCookie('username', response.username)
-          this.$router.pureplacesh('/')
+          this.$router.replace('/')
         }
       })
     },

@@ -12,6 +12,6 @@ export default {
 
 <style lang="scss">
 .project{
-  margin-top: 58px;
+  // margin-top: 58px;
 }
 </style>

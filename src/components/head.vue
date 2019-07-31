@@ -57,7 +57,8 @@ export default {
         this.isLogin = false
       }
       let flag = true
-      if (this.$route.path.indexOf('login') > -1 || this.$route.path.indexOf('register') > -1){
+      if (this.$route.path.indexOf('login') > -1 || this.$route.path.indexOf('register') > -1
+      || this.$route.path.indexOf('project') > -1){
         flag = false
       } else {
         flag = true
