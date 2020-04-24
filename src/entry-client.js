@@ -1,5 +1,7 @@
 import Vue from 'vue'
-import { createApp } from './app'
+import {
+  createApp
+} from './app'
 import ProgressBar from './components/progressbar.vue'
 
 // global progress bar
@@ -10,8 +12,10 @@ document.body.appendChild(bar.$el)
 
 // a global mixin that calls `asyncData` when a route component's params change
 Vue.mixin({
-  beforeRouteUpdate (to, from, next) {
-    const { asyncData } = this.$options
+  beforeRouteUpdate(to, from, next) {
+    const {
+      asyncData
+    } = this.$options
     if (asyncData) {
       asyncData({
         store: this.$store,
@@ -23,14 +27,21 @@ Vue.mixin({
   }
 })
 
-const { app, router, store } = createApp()
+const {
+  app,
+  router,
+  store
+} = createApp()
 
 // 当使用 template 时，context.state 将作为 window.__INITIAL_STATE__ 状态，
 // 自动嵌入到最终的 HTML 中。
 // 而在客户端，在挂载到应用程序之前，store 就应该获取到状态：
-if(window.__INITIAL_STATE__) {
+if (typeof __INITIAL_STATE__ !== "undefined") {
   store.replaceState(window.__INITIAL_STATE__)
 }
+// if(window.__INITIAL_STATE__) {
+//   store.replaceState(window.__INITIAL_STATE__)
+// }
 
 router.onReady(() => {
   // 添加路由钩子函数，用于处理 asyncData.
@@ -44,24 +55,54 @@ router.onReady(() => {
     // 所以我们对比它们，找出两个匹配列表的差异组件
     let diffed = false
     const activated = matched.filter((c, i) => {
-      return diffed || (diffed = (prevMatched[i] !== c ))
+      return diffed || (diffed = (prevMatched[i] !== c))
     })
     const asyncDataHooks = activated.map(c => c.asyncData).filter(_ => _)
-    
-    if(!asyncDataHooks.length) {
+
+    if (!asyncDataHooks.length) {
       return next()
     }
 
     bar.start()
 
-    Promise.all(asyncDataHooks.map(hook => hook({ store, route: to })))
+    Promise.all(asyncDataHooks.map(hook => hook({
+        store,
+        route: to
+      })))
       .then(() => {
         bar.finish()
         next()
       }).catch(next)
   })
 
+  //如果拿到服务端的错误状态，则执行客户端渲染程序
+  // if (window.__serverRenderError) {
+  //   feCompatibleRende(currentRoute);
+  // }
   // actually mount to DOM
   // 这里假定 App.vue 模板中根元素具有 `id="app"`
   app.$mount('#app')
 })
+
+// node报错时前端路由重渲染
+// function feCompatibleRende(route) {
+//   let matched = router.getMatchedComponents(route);
+//   console.log('前端兼容渲染执行');
+//   Promise.all(matched.map(c => {
+//     if (c.preFetch) {
+//       return c.preFetch({
+//         store,
+//         route,
+//         req: {
+//           headers: {
+//             cookie: document.cookie
+//           }
+//         }
+//       })
+//     }
+//   })).then(() => {
+//     console.log('ok');
+//   }).catch((e) => {
+//     console.error(e);
+//   })
+// }
