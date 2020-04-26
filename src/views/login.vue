@@ -37,6 +37,7 @@ import axios from 'axios'
 import Tools from '../util/tools.js'
 export default {
   name: 'login',
+  title: '登录',
   data () {
     return {
       username: '',

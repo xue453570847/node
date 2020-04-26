@@ -74,7 +74,7 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'detail',
   title() {
-    return 'Detail ' + this.res.item.id
+    return '详情' + this.res.item.id
   },
   asyncData ({ store, route }) {
     // 触发 action 后，会返回 Promise

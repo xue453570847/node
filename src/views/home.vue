@@ -33,7 +33,7 @@ export default {
     return store.dispatch('getAllData')
   },
   name: 'home',
-  title: 'Home',
+  title: '首页',
   data() {
     return {
       introduction: 'sssss'
